@@ -1,0 +1,34 @@
+# Maven / Quarkus build output
+target/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# OpenCode plugin-API scaffolding — generated at runtime whenever a project
+# has a .opencode/ directory; never committed.
+.opencode/node_modules/
+.opencode/package.json
+.opencode/package-lock.json
+.opencode/bun.lock
+.opencode/.gitignore
+
+# IDE / language-server droppings
+.project
+.settings/
+.classpath
+
+# Derived legacy@3.x trees must never be committed (workspace path is
+# /projects/.derived/; guard against accidental copies under modernized).
+migration/derived/tree/
+migration/derived/legacy-at-3/
+
+# Hermes runtime under relocated HERMES_HOME (AD-H §1c). Agent-authored
+# skills under .hermes/home/skills/ stay versioned; sessions/logs/cron
+# output do not. Secrets must never land here — Managed Scope owns .env.
+.hermes/home/sessions/
+.hermes/home/logs/
+.hermes/home/cron/output/
+.hermes/home/auth.json
+.hermes/home/.env
