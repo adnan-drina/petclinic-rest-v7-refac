@@ -3,9 +3,11 @@ package com.demo.rest;
 import com.demo.model.Owner;
 import com.demo.model.Pet;
 import com.demo.model.PetType;
+import com.demo.model.Visit;
 import com.demo.rest.dto.OwnerDto;
 import com.demo.rest.dto.PetDto;
 import com.demo.rest.dto.PetTypeDto;
+import com.demo.rest.dto.VisitDto;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ import java.util.List;
 
 /**
  * Manual HARVEST of OwnerMapper/PetMapper JSON projection (MapStruct not yet on dest).
- * Brief B-OWNER-PET-1; Visit body deferred (#9) — emit empty visits[].
+ * Brief B-OWNER-PET-1. P9: emit visit bodies (id/date/description) for G-4 deep parity.
  */
 @ApplicationScoped
 public class OwnerPetDtoMapper {
@@ -62,8 +64,24 @@ public class OwnerPetDtoMapper {
         dto.birthDate = pet.getBirthDate() == null ? null : pet.getBirthDate().toString();
         dto.typeId = null; // referent GET emits typeId:null alongside type{}
         dto.type = toPetTypeDto(pet.getType());
-        // Visit deferred — empty list matches referent seeded pets without visits in body_prefix
-        dto.visits = new ArrayList<>();
+        List<VisitDto> visits = new ArrayList<>();
+        if (pet.getVisits() != null) {
+            pet.getVisits().stream()
+                .sorted(Comparator.comparing(v -> v.getId() == null ? Integer.MAX_VALUE : v.getId()))
+                .forEach(v -> visits.add(toVisitDto(v)));
+        }
+        dto.visits = visits;
+        return dto;
+    }
+
+    public VisitDto toVisitDto(Visit visit) {
+        if (visit == null) {
+            return null;
+        }
+        VisitDto dto = new VisitDto();
+        dto.id = visit.getId();
+        dto.date = visit.getDate() == null ? null : visit.getDate().toString();
+        dto.description = visit.getDescription();
         return dto;
     }
 
