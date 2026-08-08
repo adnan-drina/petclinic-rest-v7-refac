@@ -1,0 +1,9 @@
+{
+  "gate": "G-4",
+  "fixture": "known-vacuous",
+  "verdict": "INCONCLUSIVE",
+  "reason": "parity.json",
+  "evidence": {
+    "path": "migration/fixtures/admission/g4-runtime-parity/known-vacuous"
+  }
+}

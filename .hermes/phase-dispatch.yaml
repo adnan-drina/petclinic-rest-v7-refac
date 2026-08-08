@@ -1,32 +1,145 @@
-# AD-H §15 — seed of per-phase kanban_create dispatch parameters.
+# AD-H §15 + §16 — per-phase kanban_create dispatch seed.
 # Every M-phase task must set max_runtime_seconds from this file (native
 # recovery: SIGTERM + re-queue, outcome=timed_out). Do not omit.
 #
-# workspace_kind / workspace_path / skills / body / parents / idempotency_key
-# land with the full phase schema (§15.3). Until then:
-#   - workspace_kind defaults to scratch (disposable tmp) — NEVER rely on it
+# skills[] = declared preload / intended skill set (AD-H §16) — not Hermes RBAC.
+# One Kanban task ⇒ one role. Enforcement: SOUL + write-safe-root + acks + lints.
+# Spec-kit /speckit.* skills live under ~/.hermes/skills (Path.home()); keep
+# that path on skills.external_dirs. Never include /speckit.implement.
+#
+# workspace_kind / workspace_path / body / parents / idempotency_key land
+# with the full phase schema (§15.3). Until then:
+#   - workspace_kind defaults to scratch — NEVER rely on it
 #   - every phase must eventually set workspace_kind: dir|worktree + absolute
 #     workspace_path to the migration repo
 #
-# Watchdog STUCK_SECONDS (observation, §15.2) must exceed max(budgets) so
-# native timeout fires first; the cron job reports what survives recovery.
+# Watchdog STUCK_SECONDS (observation, §15.2) must exceed max(budgets).
 
 phases:
   M1:
-    # ANALYZE — MTA/kantra + profile authoring
+    # ANALYZE — MTA/kantra + inventory + profile authoring
+    role: evidence-analyst
+    skills:
+      - derive-legacy-boot3
+      - mta-analysis
+      - inventory-entry-points
+      - sdd-readiness
     max_runtime_seconds: 3600
+    requires_acks: []
   M2:
-    # PLAN — story partition / briefs
+    # PLAN — story partition / briefs (planner) and SDD emit (spec-author)
+    # Dispatch picks one role per task; both listed for the phase seed.
+    role: planner
+    alternate_roles:
+      - spec-author
+    skills:
+      - sdd-readiness
+      - role-authority
+    skills_by_role:
+      planner:
+        - sdd-readiness
+        - role-authority
+      spec-author:
+        - sdd-readiness
+        - role-authority
+        # /speckit.specify|plan|tasks|analyze from ~/.hermes/skills (not implement)
     max_runtime_seconds: 2400
+    requires_acks:
+      - m1-findings
   M3:
     # IMPLEMENT — per-unit transform
+    role: implementer
+    skills:
+      - sdd-readiness
+      - role-authority
+      - grounded-generation
+      - auditability-repeatability
+      - spring-to-quarkus-patterns
+      - domain-gates
+    # AD-H §18 required_checks (validator/sensor matrix)
+    required_checks:
+      - compile
+      - task_scoped_tests
+      - g2_if_harvest
     max_runtime_seconds: 2700
+    requires_acks:
+      - m1-findings
+      - brief-identity
   M4:
-    # VERIFY — compile/test/sonar sensors
+    # VERIFY — verdict token PROVISIONAL_ACCEPT (AD-H §18.0). G-1 = volume+substance;
+    # g1_kill_ratio must be pending_threshold until threshold pinned (option A).
+    role: validator
+    verdict_token: PROVISIONAL_ACCEPT
+    accept_kind: provisional
+    skills:
+      - domain-gates
+      - validation-release-gates
+      - harness-validate
+      - role-authority
+    required_checks:
+      - mvn_clean_verify
+      - unit_it_contract
+      - sonar
+      - boot_health
+      - g1_characterization
+      - g2_if_harvest
     max_runtime_seconds: 1800
+    requires_acks:
+      - m1-findings
+      - brief-identity
   M5:
-    # CLOSE — findings refresh / story close
+    # CLOSE — full ACCEPT (G-4 closes G-1 residue). Kill-ratio PASS+pin or
+    # typed Operator waiver. G-4 fail after provisional → reopen that story.
+    role: validator
+    accept_kind: full
+    skills:
+      - mta-analysis
+      - domain-gates
+      - validation-release-gates
+      - harness-validate
+      - role-authority
+    required_checks:
+      - preflight
+      - regression_suite
+      - sonar
+      - mta_rescan
+      - g3_findings_delta
+      - acceptance_live
+      - g4_runtime_parity
     max_runtime_seconds: 2400
+    requires_acks:
+      - m1-findings
+      - brief-identity
+  factory:
+    # Push main — must_not_contradict_m5_accept = full M5 ACCEPT only (§18.0).
+    # Provisional M4 / provisional-labeled M5 must refuse.
+    role: validator
+    required_checks:
+      - compile
+      - unit_it_contract
+      - sonar
+      - security
+      - deploy_smoke
+      - must_not_contradict_m5_accept
+
+# Reviewer is not an M-phase seed — used between phases / on blocked.
+roles:
+  evidence-analyst:
+    phase: M1
+  planner:
+    phase: M2
+  spec-author:
+    phase: M2
+  implementer:
+    phase: M3
+  reviewer:
+    phase: between
+    skills:
+      - domain-gates
+      - harness-validate
+      - role-authority
+  validator:
+    phase: M4
 
 watchdog:
   # max(phases)=3600 + 600s grace for "still running after native recovery"

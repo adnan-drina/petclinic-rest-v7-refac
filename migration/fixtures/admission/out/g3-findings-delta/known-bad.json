@@ -1,0 +1,9 @@
+{
+  "gate": "G-3",
+  "fixture": "known-bad",
+  "verdict": "REFUSE",
+  "reason": "mta-findings.json",
+  "evidence": {
+    "path": "migration/fixtures/admission/g3-findings-delta/known-bad"
+  }
+}

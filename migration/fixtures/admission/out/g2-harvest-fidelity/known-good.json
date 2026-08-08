@@ -1,0 +1,9 @@
+{
+  "gate": "G-2",
+  "fixture": "known-good",
+  "verdict": "ACCEPT",
+  "reason": "field-set comparison",
+  "evidence": {
+    "path": "migration/fixtures/admission/g2-harvest-fidelity/known-good"
+  }
+}

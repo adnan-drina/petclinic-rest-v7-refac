@@ -1,0 +1,9 @@
+{
+  "gate": "G-1",
+  "fixture": "known-good",
+  "verdict": "ACCEPT",
+  "reason": "mutation-evidence.json",
+  "evidence": {
+    "path": "migration/fixtures/admission/g1-characterization/known-good"
+  }
+}

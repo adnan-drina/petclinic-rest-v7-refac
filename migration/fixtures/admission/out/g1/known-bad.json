@@ -1,0 +1,9 @@
+{
+  "gate": "G-1",
+  "fixture": "known-bad",
+  "verdict": "REFUSE",
+  "reason": "mutation-evidence.json",
+  "evidence": {
+    "path": "/Users/adrina/Sandbox/rhoai3-coding-demo/stages/080-ai-autonomous-migration/scaffold-repo/quarkus-migration-scaffold/migration/fixtures/admission/g1/known-bad"
+  }
+}

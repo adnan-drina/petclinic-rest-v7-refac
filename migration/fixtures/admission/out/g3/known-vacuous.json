@@ -1,0 +1,9 @@
+{
+  "gate": "G-3",
+  "fixture": "known-vacuous",
+  "verdict": "INCONCLUSIVE",
+  "reason": "mta-findings.json",
+  "evidence": {
+    "path": "/Users/adrina/Sandbox/rhoai3-coding-demo/stages/080-ai-autonomous-migration/scaffold-repo/quarkus-migration-scaffold/migration/fixtures/admission/g3/known-vacuous"
+  }
+}

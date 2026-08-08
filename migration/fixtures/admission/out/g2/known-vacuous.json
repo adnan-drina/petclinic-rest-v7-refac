@@ -1,0 +1,9 @@
+{
+  "gate": "G-2",
+  "fixture": "known-vacuous",
+  "verdict": "INCONCLUSIVE",
+  "reason": "field-set comparison",
+  "evidence": {
+    "path": "/Users/adrina/Sandbox/rhoai3-coding-demo/stages/080-ai-autonomous-migration/scaffold-repo/quarkus-migration-scaffold/migration/fixtures/admission/g2/known-vacuous"
+  }
+}

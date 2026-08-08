@@ -1,0 +1,9 @@
+{
+  "gate": "G-4",
+  "fixture": "known-good",
+  "verdict": "ACCEPT",
+  "reason": "parity.json",
+  "evidence": {
+    "path": "migration/fixtures/admission/g4-runtime-parity/known-good"
+  }
+}

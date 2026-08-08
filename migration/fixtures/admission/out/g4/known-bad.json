@@ -1,0 +1,9 @@
+{
+  "gate": "G-4",
+  "fixture": "known-bad",
+  "verdict": "REFUSE",
+  "reason": "parity.json",
+  "evidence": {
+    "path": "/Users/adrina/Sandbox/rhoai3-coding-demo/stages/080-ai-autonomous-migration/scaffold-repo/quarkus-migration-scaffold/migration/fixtures/admission/g4/known-bad"
+  }
+}

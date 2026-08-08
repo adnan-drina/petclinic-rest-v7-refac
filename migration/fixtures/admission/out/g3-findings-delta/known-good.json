@@ -1,0 +1,9 @@
+{
+  "gate": "G-3",
+  "fixture": "known-good",
+  "verdict": "ACCEPT",
+  "reason": "mta-findings.json",
+  "evidence": {
+    "path": "migration/fixtures/admission/g3-findings-delta/known-good"
+  }
+}
