@@ -1,0 +1,19 @@
+{
+  "schema": "migration/generation-provenance/v1",
+  "task_id": "t_b232a3b1",
+  "brief_id": "B-OWNER-PET-1",
+  "execution_summary": "M4 VERIFY Owner/Pet PROVISIONAL_ACCEPT (typed model_id amendment; original file absent)",
+  "parent_task_id": "t_a656aa1a",
+  "model_id": "minimax-m2",
+  "model_id_gap": false,
+  "model_provider": "custom:maas-m2",
+  "model_base_url": "https://maas-rhdp.apps.maas.redhatworkshops.io/v1",
+  "model_id_correction": {
+    "kind": "typed-amendment",
+    "authority": "E-20260808T152104Z",
+    "evidence": "measurements/maas-model-drift/drift-window-evidence.txt",
+    "note": "No original provenance file for M4; model_id reconstructed from agent.log API clients during 10:37\u201310:40Z window (RHDP minimax-m2).",
+    "amended_at": "2026-08-08T15:22:30Z",
+    "amended_by": "Lead"
+  }
+}

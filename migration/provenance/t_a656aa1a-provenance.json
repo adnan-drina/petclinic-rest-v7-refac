@@ -14,7 +14,7 @@
         "legacy_namespace": "javax.persistence"
       },
       {
-        "finding_id": "javax-to-jakarta-import-00001", 
+        "finding_id": "javax-to-jakarta-import-00001",
         "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/model/Owner.java",
         "line": 23,
         "legacy_namespace": "javax.validation"
@@ -27,7 +27,7 @@
       },
       {
         "finding_id": "persistence-to-quarkus-00010",
-        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/jpa/JpaPetRepositoryImpl.java", 
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/jpa/JpaPetRepositoryImpl.java",
         "line": 44,
         "annotation": "@PersistenceContext"
       },
@@ -40,7 +40,7 @@
       {
         "finding_id": "springboot-di-to-quarkus-00003",
         "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/jdbc/JdbcOwnerRepositoryImpl.java",
-        "line": 62, 
+        "line": 62,
         "annotation": "@Autowired"
       },
       {
@@ -64,7 +64,7 @@
       "transaction_management": "Added @Transactional annotations to data modification methods"
     },
     "grounded-generation": {
-      "consultation_order": "brief → spec → legacy RO → destination reference → skills",
+      "consultation_order": "brief \u2192 spec \u2192 legacy RO \u2192 destination reference \u2192 skills",
       "citation_requirement": "Every IMPLEMENT commit requires task id + brief id + legacy locus",
       "anti_invention": "No new features beyond resolving 8 MTA findings"
     }
@@ -73,7 +73,7 @@
   "implementation_details": {
     "files_modified": [
       "src/main/java/com/demo/model/Owner.java",
-      "src/main/java/com/demo/model/Pet.java", 
+      "src/main/java/com/demo/model/Pet.java",
       "src/main/java/com/demo/model/Person.java",
       "src/main/java/com/demo/model/NamedEntity.java",
       "src/main/java/com/demo/model/BaseEntity.java",
@@ -85,7 +85,7 @@
     "tests_created": [
       "src/test/java/com/demo/model/OwnerTest.java",
       "src/test/java/com/demo/model/PetTest.java",
-      "src/test/java/com/demo/repository/jpa/JpaOwnerRepositoryImplTest.java", 
+      "src/test/java/com/demo/repository/jpa/JpaOwnerRepositoryImplTest.java",
       "src/test/java/com/demo/repository/jpa/JpaPetRepositoryImplTest.java"
     ],
     "findings_addressed": [
@@ -93,25 +93,35 @@
         "id": "javax-to-jakarta-import-00001",
         "status": "CLOSED",
         "description": "Replaced javax.persistence imports with jakarta.persistence in Owner/Pet models",
-        "files": ["src/main/java/com/demo/model/Owner.java", "src/main/java/com/demo/model/Pet.java"]
+        "files": [
+          "src/main/java/com/demo/model/Owner.java",
+          "src/main/java/com/demo/model/Pet.java"
+        ]
       },
       {
-        "id": "javax-to-jakarta-import-00001", 
+        "id": "javax-to-jakarta-import-00001",
         "status": "CLOSED",
         "description": "Replaced javax.validation imports with jakarta.validation in Owner/Pet models",
-        "files": ["src/main/java/com/demo/model/Owner.java", "src/main/java/com/demo/model/Pet.java"]
-      },
-      {
-        "id": "persistence-to-quarkus-00010",
-        "status": "CLOSED", 
-        "description": "Replaced @PersistenceContext with @Inject in JpaOwnerRepositoryImpl",
-        "files": ["src/main/java/com/demo/repository/jpa/JpaOwnerRepositoryImpl.java"]
+        "files": [
+          "src/main/java/com/demo/model/Owner.java",
+          "src/main/java/com/demo/model/Pet.java"
+        ]
       },
       {
         "id": "persistence-to-quarkus-00010",
         "status": "CLOSED",
-        "description": "Replaced @PersistenceContext with @Inject in JpaPetRepositoryImpl", 
-        "files": ["src/main/java/com/demo/repository/jpa/JpaPetRepositoryImpl.java"]
+        "description": "Replaced @PersistenceContext with @Inject in JpaOwnerRepositoryImpl",
+        "files": [
+          "src/main/java/com/demo/repository/jpa/JpaOwnerRepositoryImpl.java"
+        ]
+      },
+      {
+        "id": "persistence-to-quarkus-00010",
+        "status": "CLOSED",
+        "description": "Replaced @PersistenceContext with @Inject in JpaPetRepositoryImpl",
+        "files": [
+          "src/main/java/com/demo/repository/jpa/JpaPetRepositoryImpl.java"
+        ]
       },
       {
         "id": "springboot-di-to-quarkus-00003",
@@ -119,7 +129,7 @@
         "description": "JdbcOwnerRepositoryImpl files removed - not used in Quarkus native application"
       },
       {
-        "id": "springboot-di-to-quarkus-00003", 
+        "id": "springboot-di-to-quarkus-00003",
         "status": "HARVESTED",
         "description": "JdbcOwnerRepositoryImpl files removed - not used in Quarkus native application"
       },
@@ -127,13 +137,17 @@
         "id": "transaction-to-quarkus-00003",
         "status": "CLOSED",
         "description": "Added @Transactional annotations to JpaPetRepositoryImpl save and delete methods",
-        "files": ["src/main/java/com/demo/repository/jpa/JpaPetRepositoryImpl.java"]
+        "files": [
+          "src/main/java/com/demo/repository/jpa/JpaPetRepositoryImpl.java"
+        ]
       },
       {
         "id": "transaction-to-quarkus-00003",
-        "status": "CLOSED", 
+        "status": "CLOSED",
         "description": "Added @Transactional annotations to SpringDataPetRepositoryImpl delete method",
-        "files": ["src/main/java/com/demo/repository/springdatajpa/SpringDataPetRepositoryImpl.java"]
+        "files": [
+          "src/main/java/com/demo/repository/springdatajpa/SpringDataPetRepositoryImpl.java"
+        ]
       }
     ],
     "preserved_non_goals": [
@@ -157,5 +171,25 @@
   "commit_info": {
     "prefix": "t_a656aa1a",
     "message_pattern": "t_a656aa1a: M3 IMPLEMENT Owner/Pet HARVEST - BR-OP-01..08 resolved"
+  },
+  "model_id": "minimax-m2",
+  "model_id_gap": false,
+  "model_provider": "custom:maas-m2",
+  "model_base_url": "https://maas-rhdp.apps.maas.redhatworkshops.io/v1",
+  "model_id_correction": {
+    "kind": "typed-amendment",
+    "authority": "E-20260808T152104Z",
+    "evidence": "measurements/maas-model-drift/drift-window-evidence.txt",
+    "window": {
+      "config_birth": "2026-08-08T10:25:56Z",
+      "restore": "2026-08-08T15:16:00Z"
+    },
+    "tasks": [
+      "t_a656aa1a",
+      "t_b232a3b1"
+    ],
+    "note": "Original provenance omitted model_id. agent.log shows exclusive RHDP minimax-m2 during window; zero openrouter.ai API client lines. Not platform qwen3-6-27b.",
+    "amended_at": "2026-08-08T15:22:30Z",
+    "amended_by": "Lead"
   }
 }
