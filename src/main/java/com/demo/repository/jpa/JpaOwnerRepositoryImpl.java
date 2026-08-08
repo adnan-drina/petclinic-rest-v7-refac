@@ -58,7 +58,9 @@ public class JpaOwnerRepositoryImpl implements OwnerRepository {
     public Owner findById(int id) {
         Query query = em.createQuery("SELECT owner FROM Owner owner left join fetch owner.pets WHERE owner.id =:id");
         query.setParameter("id", id);
-        return (Owner) query.getSingleResult();
+        @SuppressWarnings("unchecked")
+        java.util.List<Owner> list = query.getResultList();
+        return list.isEmpty() ? null : list.get(0);
     }
 
     @Override

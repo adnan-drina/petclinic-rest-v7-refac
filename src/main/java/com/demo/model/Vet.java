@@ -21,32 +21,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Simple JavaBean domain object representing a veterinarian.
- *
- * @author Ken Krebs
+ * HARVEST-aligned Vet (legacy Vet has specialties, not Visit mappedBy vet).
+ * Removes invented Vet.visits mapping that blocked Hibernate boot.
  */
 @Entity
 @Table(name = "vets")
-public class Vet extends NamedEntity {
+public class Vet extends Person {
 
-    @OneToMany(mappedBy = "vet", cascade = CascadeType.ALL)
-    private Set<Visit> visits = new HashSet<>();
-
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "vet_specialties",
         joinColumns = @JoinColumn(name = "vet_id"),
         inverseJoinColumns = @JoinColumn(name = "specialty_id")
     )
     private Set<Specialty> specialties = new HashSet<>();
-
-    public Set<Visit> getVisits() {
-        return visits;
-    }
-
-    public void setVisits(Set<Visit> visits) {
-        this.visits = visits;
-    }
 
     public Set<Specialty> getSpecialties() {
         return specialties;
