@@ -1,19 +1,30 @@
 {
   "phase": "M5",
   "verdict": "INCONCLUSIVE",
-  "accept_kind": "",
   "gate": "g4_runtime_parity",
   "story_id": "B-OWNER-PET-1",
   "prior_verdict": "PROVISIONAL_ACCEPT",
   "g1_kill_ratio": "pass",
   "g1_kill_ratio_threshold_pinned": true,
-  "kill_ratio_min": 0.75,
+  "g1_kill_ratio_pin_schema": "migration/g1-kill-ratio-pin/v2-dual-denominator",
+  "g1_kill_ratio_report": {
+    "coverage_ratio": 0.2926829268292683,
+    "kill_attempted_ratio": 0.75,
+    "kill_generated_ratio": 0.21951219512195122,
+    "coverage_min": 0.25,
+    "kill_attempted_min": 0.6,
+    "prior_sole_attempted_pin": "INVALIDATED"
+  },
   "ship": false,
   "routing": "blocked",
-  "reason": "G-4 both-modes destination parity unavailable: modernized has Owner/Pet models/repos only — no REST resources. Kill-ratio pin 0.75 satisfied (#8). Do not invent destination controllers for fake M5 ACCEPT. Visit deferred (plan #9).",
-  "blocked_on": ["destination_owner_pet_rest", "g4_dual_app_http_parity"],
+  "reason": "Hold/#1e blocked: (1) G-4 both-modes dual-app parity INCONCLUSIVE \u2014 modernized has zero Owner/Pet REST resources (do not invent). (2) Prior sole attempted pin 0.75 INVALIDATED (Deputy/Architect); dual-denominator re-pin applied \u2014 kill-ratio eval against measurement recorded but does not unlock M5 without dest HTTP. Visit deferred.",
+  "blocked_on": [
+    "destination_owner_pet_rest",
+    "g4_dual_app_http_parity"
+  ],
   "evidence_refs": [
     "migration/contracts/g1-kill-ratio-pin.json",
-    "migration/verdicts/owner-pet-m4.json"
+    "migration/verdicts/owner-pet-m4.json",
+    "migration/chaos/live-7/matrix.json"
   ]
 }
