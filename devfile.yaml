@@ -77,6 +77,12 @@ components:
           exposure: public
           secure: false
           protocol: https
+        # Hermes Agent web dashboard (Architect demo-surface E-20260808T145020Z).
+        - name: hermes-dashboard
+          targetPort: 9119
+          exposure: public
+          secure: false
+          protocol: https
         - name: debug
           targetPort: 5005
           exposure: none
