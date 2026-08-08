@@ -1,53 +1,54 @@
 {
   "schema": "migration/g1-kill-ratio-pin/v2-dual-denominator",
-  "authority": "EXECUTION-LIVE-VALIDATION-PLAN #8; W2 \u00a75/\u00a79; AD-H \u00a718.0\u00b65; Architect decide E-20260808T115649Z",
-  "ts_utc": "2026-08-08T11:58:38Z",
+  "authority": "EXECUTION-LIVE-VALIDATION-PLAN #8; W2 \u00a75/\u00a79; AD-H \u00a718.0\u00b65; Architect decide E-20260808T115649Z; stringency E-20260808T120152Z/E-20260808T121549Z/E-20260808T123742Z",
+  "ts_utc": "2026-08-08T12:41:41Z",
   "story_id": "B-OWNER-PET-1",
   "scope": "Owner/Pet slice (measured live PIT)",
   "tool": "pitest-maven",
   "pinned_version": "1.25.5",
   "mode": "live_mutationCoverage",
   "prior_pin": {
-    "status": "INVALIDATED",
-    "reason": "sole attempted pin v1 (kill_ratio_min measured_from_this_run)",
-    "defect": "sole attempted denominator worker-controlled via NO_COVERAGE; bar measured_from_this_run at equality was circular"
+    "status": "SUPERSEDED",
+    "reason": "prior dual pin coverage_min=0.25 without kill_generated_min (stringency raise)",
+    "defect": "coverage_min=0.25 admitted ~75% NO_COVERAGE; stringency required before first M5 ACCEPT"
   },
   "measurement": {
-    "mutations_total": 41,
-    "generated": 41,
+    "mutations_total": 62,
+    "generated": 62,
     "by_status": {
-      "SURVIVED": 3,
-      "NO_COVERAGE": 29,
-      "KILLED": 9
+      "SURVIVED": 2,
+      "KILLED": 26,
+      "NO_COVERAGE": 34
     },
-    "killed": 9,
-    "survived": 3,
+    "killed": 26,
+    "survived": 2,
     "timed_out": 0,
-    "no_coverage": 29,
+    "no_coverage": 34,
     "not_started": 0,
-    "attempted": 12,
-    "coverage_ratio": 0.2926829268292683,
-    "kill_attempted_ratio": 0.75,
-    "kill_generated_ratio": 0.21951219512195122,
-    "kill_ratio": 0.75,
-    "source": "/tmp/live-8-mutations.xml"
+    "attempted": 28,
+    "coverage_ratio": 0.45161290322580644,
+    "kill_attempted_ratio": 0.9285714285714286,
+    "kill_generated_ratio": 0.41935483870967744,
+    "kill_ratio": 0.9285714285714286,
+    "source": "/tmp/lead-stringency-visit/mutations.xml"
   },
   "threshold": {
-    "coverage_min": 0.25,
+    "coverage_min": 0.41,
     "kill_attempted_min": 0.6,
-    "rule": "PASS iff generated>0 AND attempted>0 AND attempted/generated >= coverage_min AND killed/attempted >= kill_attempted_min; always report killed/generated; sole killed/attempted PASS predicate FORBIDDEN",
+    "rule": "PASS iff generated>0 AND attempted>0 AND attempted/generated >= coverage_min AND killed/attempted >= kill_attempted_min AND killed/generated >= kill_generated_min; always report killed/generated; sole killed/attempted PASS predicate FORBIDDEN",
     "source": "declared_engineering_target",
-    "rationale": "Architect decide E-20260808T115649Z suggested starting declaration: margins under live pack generated=41 attempted=12 killed=9 (coverage~0.293, kill_attempted=0.75). Bars set below measured (0.25/0.60) \u2014 not identity. Sole attempted pin INVALIDATED.",
-    "folklore": false
+    "rationale": "Architect stringency E-20260808T120152Z/E-20260808T121549Z/E-20260808T123742Z: raise coverage_min and add kill_generated_min before first M5 ACCEPT; margins under live re-measure (not equality); prior 0.25 pin superseded",
+    "folklore": false,
+    "kill_generated_min": 0.38
   },
   "evaluation_against_measurement": {
     "pass": true,
-    "coverage_ratio": 0.2926829268292683,
-    "kill_attempted_ratio": 0.75,
-    "kill_generated_ratio": 0.21951219512195122,
-    "killed": 9,
-    "attempted": 12,
-    "generated": 41,
+    "coverage_ratio": 0.45161290322580644,
+    "kill_attempted_ratio": 0.9285714285714286,
+    "kill_generated_ratio": 0.41935483870967744,
+    "killed": 26,
+    "attempted": 28,
+    "generated": 62,
     "fail_reasons": []
   },
   "waiver_path": {

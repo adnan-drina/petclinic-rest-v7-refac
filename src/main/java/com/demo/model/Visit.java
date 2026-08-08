@@ -26,13 +26,16 @@ import java.time.LocalDate;
 /**
  * Simple JavaBean domain object representing a visit.
  *
+ * HARVEST fidelity: legacy no-arg ctor sets date = LocalDate.now()
+ * (G-4 normalization list absorbs clock; slice-two #9).
+ *
  * @author Ken Krebs
  */
 @Entity
 @Table(name = "visits")
 public class Visit extends BaseEntity {
 
-    @Column(name = "date")
+    @Column(name = "visit_date", columnDefinition = "DATE")
     private LocalDate date;
 
     @Column(name = "description")
@@ -42,8 +45,13 @@ public class Visit extends BaseEntity {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
+    /** Creates a new instance of Visit for the current date (referent fidelity). */
+    public Visit() {
+        this.date = LocalDate.now();
+    }
+
     public LocalDate getDate() {
-        return date;
+        return this.date;
     }
 
     public void setDate(LocalDate date) {
@@ -51,7 +59,7 @@ public class Visit extends BaseEntity {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -59,7 +67,7 @@ public class Visit extends BaseEntity {
     }
 
     public Pet getPet() {
-        return pet;
+        return this.pet;
     }
 
     public void setPet(Pet pet) {

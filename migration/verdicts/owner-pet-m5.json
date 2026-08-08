@@ -1,26 +1,95 @@
 {
   "phase": "M5",
-  "verdict": "INCONCLUSIVE",
+  "verdict": "ACCEPT",
   "gate": "g4_runtime_parity",
   "story_id": "B-OWNER-PET-1",
-  "prior_verdict": "PROVISIONAL_ACCEPT",
+  "prior_verdict": "INCONCLUSIVE",
   "g1_kill_ratio": "pass",
   "g1_kill_ratio_threshold_pinned": true,
   "g1_kill_ratio_pin_schema": "migration/g1-kill-ratio-pin/v2-dual-denominator",
-  "destination_rest": "HARVESTED_GET_SECURITY_OFF",
-  "destination_security_off_gets": "200x5",
-  "ship": false,
-  "routing": "blocked",
-  "reason": "G-4 dest both-modes probed (sec-off 200; sec-on auth 200/unauth 401). Dual-denom kill-ratio pin retained (pass). M5 ACCEPT still blocked: coverage stringency (raise coverage_min and/or kill_generated_min) not yet applied before first ACCEPT; Visit deferred; Operator NP decide open.",
-  "blocked_on": [
-    "coverage_stringency_before_m5_accept",
-    "visit_slice_deferred"
-  ],
-  "evidence_refs": [
-    "migration/contracts/g1-kill-ratio-pin.json",
-    "/tmp/g4-sec-on-out/g4-dest-probe-security-on.json"
-  ],
+  "g1_kill_ratio_report": {
+    "coverage_ratio": 0.45161290322580644,
+    "kill_attempted_ratio": 0.9285714285714286,
+    "kill_generated_ratio": 0.41935483870967744,
+    "coverage_min": 0.41,
+    "kill_attempted_min": 0.6,
+    "kill_generated_min": 0.38,
+    "prior_sole_attempted_pin": "INVALIDATED",
+    "prior_coverage_min_0_25": "SUPERSEDED_by_stringency",
+    "live_remeasure": {
+      "generated": 62,
+      "killed": 26,
+      "attempted": 28,
+      "no_coverage": 34
+    }
+  },
   "g4_security_off_dest": "pass",
   "g4_security_on_dest": "pass",
-  "g4_both_modes_dest": "pass"
+  "g4_both_modes_dest": "pass",
+  "g4_depth": "status_shape_smoke",
+  "ship": true,
+  "routing": "continue",
+  "reason": "Stringency pin applied (coverage_min raised + kill_generated_min) and PASS on live re-measure; G-4 dest both-modes PASS. Visit removed from Owner/Pet blocked_on (Architect E-20260808T123742Z). Body deep dual-app canonicalization not claimed \u2014 status/shape smoke ACCEPT for B-OWNER-PET-1.",
+  "blocked_on": [],
+  "visit_note": "Visit is campaign slice-two (#9); not an Owner/Pet M5 blocker.",
+  "visit_slice_9": {
+    "sec_off": {
+      "profile": "g4",
+      "auth_mode": "none",
+      "results": [
+        {
+          "path": "/api/visits",
+          "mode": "probe",
+          "status": 200,
+          "body_prefix": "[{\"id\":1,\"date\":\"2013-01-01\",\"description\":\"rabies shot\"},{\"id\":2,\"date\":\"2013-01-02\",\"description\":\"rabies shot\"}]"
+        },
+        {
+          "path": "/api/visits/1",
+          "mode": "probe",
+          "status": 200,
+          "body_prefix": "{\"id\":1,\"date\":\"2013-01-01\",\"description\":\"rabies shot\"}"
+        }
+      ]
+    },
+    "sec_on": {
+      "profile": "g4-secure",
+      "auth_mode": "basic",
+      "results": [
+        {
+          "path": "/api/visits",
+          "mode": "auth",
+          "status": 200,
+          "body_prefix": "[{\"id\":1,\"date\":\"2013-01-01\",\"description\":\"rabies shot\"},{\"id\":2,\"date\":\"2013-01-02\",\"description\":\"rabies shot\"}]"
+        },
+        {
+          "path": "/api/visits",
+          "mode": "unauth",
+          "status": 401,
+          "body_prefix": ""
+        },
+        {
+          "path": "/api/visits/1",
+          "mode": "auth",
+          "status": 200,
+          "body_prefix": "{\"id\":1,\"date\":\"2013-01-01\",\"description\":\"rabies shot\"}"
+        },
+        {
+          "path": "/api/visits/1",
+          "mode": "unauth",
+          "status": 401,
+          "body_prefix": ""
+        }
+      ]
+    },
+    "normalization": "migration/slices/g4-normalization-list.json"
+  },
+  "evidence_refs": [
+    "migration/contracts/g1-kill-ratio-pin.json",
+    "measurements/live-owner-pet-rest/g4-dest-probe-security-on.json",
+    "measurements/live-owner-pet-rest/g4-dest-probe-security-off.json",
+    "/tmp/lead-stringency-visit/pit-stats.json",
+    "/tmp/lead-stringency-visit/g4-visit-sec-off-probe.json",
+    "/tmp/lead-stringency-visit/g4-visit-sec-on-probe.json"
+  ],
+  "ts_utc": "2026-08-08T12:47:26Z"
 }

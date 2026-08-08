@@ -1,0 +1,23 @@
+{
+  "schema": "rhoai3.g4-normalization/v1",
+  "policy": "canonicalize-never-ignore; status never normalizable; deny-by-default",
+  "visit_deferred": false,
+  "active": [
+    {
+      "id": "json-array-order",
+      "kind": "canonicalize",
+      "rule": "stable-sort arrays of objects by id when present"
+    },
+    {
+      "id": "Visit.date-LocalDate.now",
+      "kind": "canonicalize",
+      "rule": "For GET of seeded Visits, compare entity/DB date (explicit), never wall-clock. No-arg ctor LocalDate.now() is residual for POST/create without date — declare INCONCLUSIVE only if request set exercises that path without an explicit date; seeded GET must not be INCONCLUSIVE-by-clock.",
+      "status": "ACTIVE — absorbed for slice-two Visit GET request set"
+    }
+  ],
+  "forbidden": [
+    "status",
+    "ignore-field",
+    "worker-expandable"
+  ]
+}
