@@ -1,0 +1,2 @@
+BODY_REF_DIGEST: key=story_tip path=migration/contracts/validation-release-gates.md expected=ff2daa72ea735ad9348046d08fe5ef0bce9e0fc61954f4999bb53eca1e2d0ef5 actual=3f2daa72ea735ad9348046d08fe5ef0bce9e0fc61954f4999bb53eca1e2d0ef5
+Kanban body checks FAILED (1 body(ies)).

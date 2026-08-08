@@ -1,0 +1,317 @@
+{
+  "plan_item": 7,
+  "name": "chaos_matrix",
+  "ts": "2026-08-08T11:57:33Z",
+  "board": "chaos-matrix-7",
+  "repo": "/projects/modernized",
+  "scenarios": [
+    {
+      "scenario": "timeout",
+      "ok": true,
+      "task_id": "t_856ee102",
+      "terminal_state": "timed_out",
+      "kanban_status": "blocked",
+      "event_kinds": [
+        "claimed",
+        "created",
+        "gave_up",
+        "spawned",
+        "timed_out"
+      ],
+      "run_outcomes": [
+        "timed_out"
+      ],
+      "enforce_returned": [
+        "t_856ee102"
+      ],
+      "evidence": {
+        "events": [
+          {
+            "kind": "created",
+            "payload": {
+              "assignee": null,
+              "status": "ready",
+              "parents": [],
+              "tenant": null,
+              "workspace_kind": "scratch",
+              "workspace_path": null,
+              "branch_name": null,
+              "project_id": null,
+              "skills": null,
+              "goal_mode": null,
+              "model_override": null,
+              "provider_override": null
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "claimed",
+            "payload": {
+              "lock": "workspace9e51e0184449412d-74f8956d76-xqtcx:25690",
+              "expires": 1786191153,
+              "run_id": 1
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "spawned",
+            "payload": {
+              "pid": 25691
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "timed_out",
+            "payload": {
+              "pid": 25691,
+              "elapsed_seconds": 10,
+              "limit_seconds": 2,
+              "sigkill": false
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "gave_up",
+            "payload": {
+              "failures": 1,
+              "effective_limit": 1,
+              "limit_source": "task",
+              "error": "elapsed 10s > limit 2s",
+              "trigger_outcome": "timed_out",
+              "pid": 25691,
+              "sigkill": false
+            },
+            "created_at": 1786190253
+          }
+        ],
+        "runs": [
+          {
+            "id": 1,
+            "status": "timed_out",
+            "outcome": "timed_out",
+            "error": "elapsed 10s > limit 2s",
+            "worker_pid": null,
+            "started_at": 1786190243,
+            "ended_at": 1786190253
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "process_death",
+      "ok": true,
+      "task_id": "t_4dc5ec7e",
+      "terminal_state": "crashed",
+      "kanban_status": "blocked",
+      "event_kinds": [
+        "claimed",
+        "crashed",
+        "created",
+        "gave_up",
+        "spawned"
+      ],
+      "run_outcomes": [
+        "crashed"
+      ],
+      "detect_returned": [
+        "t_4dc5ec7e"
+      ],
+      "evidence": {
+        "events": [
+          {
+            "kind": "created",
+            "payload": {
+              "assignee": null,
+              "status": "ready",
+              "parents": [],
+              "tenant": null,
+              "workspace_kind": "scratch",
+              "workspace_path": null,
+              "branch_name": null,
+              "project_id": null,
+              "skills": null,
+              "goal_mode": null,
+              "model_override": null,
+              "provider_override": null
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "claimed",
+            "payload": {
+              "lock": "workspace9e51e0184449412d-74f8956d76-xqtcx:25690",
+              "expires": 1786191153,
+              "run_id": 2
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "spawned",
+            "payload": {
+              "pid": 25692
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "crashed",
+            "payload": {
+              "pid": 25692,
+              "claimer": "workspace9e51e0184449412d-74f8956d76-xqtcx:25690"
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "gave_up",
+            "payload": {
+              "failures": 1,
+              "effective_limit": 1,
+              "limit_source": "task",
+              "error": "pid 25692 not alive",
+              "trigger_outcome": "crashed",
+              "pid": 25692,
+              "claimer": "workspace9e51e0184449412d-74f8956d76-xqtcx:25690"
+            },
+            "created_at": 1786190253
+          }
+        ],
+        "runs": [
+          {
+            "id": 2,
+            "status": "crashed",
+            "outcome": "crashed",
+            "error": "pid 25692 not alive",
+            "worker_pid": null,
+            "started_at": 1786190253,
+            "ended_at": 1786190253
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "dup_dispatch",
+      "ok": true,
+      "task_id": "t_5424d520",
+      "terminal_state": "dup_dispatch_refused",
+      "kanban_status": "running",
+      "idempotency_key": "chaos7-dup-1786190253",
+      "create_ids": [
+        "t_5424d520",
+        "t_5424d520"
+      ],
+      "second_create_same_id": true,
+      "second_claim_refused": true,
+      "event_kinds": [
+        "claimed",
+        "created"
+      ],
+      "evidence": {
+        "events": [
+          {
+            "kind": "created",
+            "payload": {
+              "assignee": null,
+              "status": "ready",
+              "parents": [],
+              "tenant": null,
+              "workspace_kind": "scratch",
+              "workspace_path": null,
+              "branch_name": null,
+              "project_id": null,
+              "skills": null,
+              "goal_mode": null,
+              "model_override": null,
+              "provider_override": null
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "claimed",
+            "payload": {
+              "lock": "workspace9e51e0184449412d-74f8956d76-xqtcx:25690",
+              "expires": 1786191153,
+              "run_id": 3
+            },
+            "created_at": 1786190253
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "digest_mismatch",
+      "ok": true,
+      "task_id": "t_83e0a4c8",
+      "terminal_state": "blocked:BODY_REF_DIGEST",
+      "kanban_status": "blocked",
+      "consumer_code": "BODY_REF_DIGEST",
+      "check_rc": 1,
+      "event_kinds": [
+        "blocked",
+        "created"
+      ],
+      "evidence": {
+        "events": [
+          {
+            "kind": "created",
+            "payload": {
+              "assignee": null,
+              "status": "ready",
+              "parents": [],
+              "tenant": null,
+              "workspace_kind": "dir",
+              "workspace_path": "/projects/modernized",
+              "branch_name": null,
+              "project_id": null,
+              "skills": null,
+              "goal_mode": null,
+              "model_override": null,
+              "provider_override": null
+            },
+            "created_at": 1786190253
+          },
+          {
+            "kind": "blocked",
+            "payload": {
+              "reason": "BODY_REF_DIGEST: typed body digest mismatch (chaos matrix)",
+              "kind": "needs_input",
+              "recurrences": 1
+            },
+            "created_at": 1786190253
+          }
+        ],
+        "wrong_sha256": "ff2daa72ea735ad9348046d08fe5ef0bce9e0fc61954f4999bb53eca1e2d0ef5",
+        "path": "/projects/modernized/migration/contracts/validation-release-gates.md"
+      }
+    },
+    {
+      "scenario": "gate_refusal",
+      "ok": true,
+      "task_id": "t_f11957e9",
+      "terminal_state": "blocked:gate_REFUSE",
+      "kanban_status": "blocked",
+      "gate_verdict": "REFUSE",
+      "verdict_path": "migration/verdicts/chaos7-gate-refusal.json",
+      "g1_rc": 0,
+      "evidence": {
+        "verdict": {
+          "phase": "CHAOS",
+          "gate": "g1_characterization",
+          "fixture": "known-bad",
+          "verdict": "REFUSE",
+          "routing": "blocked",
+          "ship": false,
+          "story_id": "CHAOS-7",
+          "reason": "Plan #7 gate refusal exercise (known-bad admission)"
+        },
+        "fixture": "/projects/modernized/migration/fixtures/admission/out/g1-characterization/known-bad.json"
+      }
+    }
+  ],
+  "all_ok": true,
+  "terminal_states": {
+    "timeout": "timed_out",
+    "process_death": "crashed",
+    "dup_dispatch": "dup_dispatch_refused",
+    "digest_mismatch": "blocked:BODY_REF_DIGEST",
+    "gate_refusal": "blocked:gate_REFUSE"
+  }
+}

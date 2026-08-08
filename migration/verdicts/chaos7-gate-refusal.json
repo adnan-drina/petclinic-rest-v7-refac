@@ -1,0 +1,10 @@
+{
+  "phase": "CHAOS",
+  "gate": "g1_characterization",
+  "fixture": "known-bad",
+  "verdict": "REFUSE",
+  "routing": "blocked",
+  "ship": false,
+  "story_id": "CHAOS-7",
+  "reason": "Plan #7 gate refusal exercise (known-bad admission)"
+}

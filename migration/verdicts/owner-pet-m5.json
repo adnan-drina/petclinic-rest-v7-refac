@@ -1,0 +1,19 @@
+{
+  "phase": "M5",
+  "verdict": "INCONCLUSIVE",
+  "accept_kind": "",
+  "gate": "g4_runtime_parity",
+  "story_id": "B-OWNER-PET-1",
+  "prior_verdict": "PROVISIONAL_ACCEPT",
+  "g1_kill_ratio": "pass",
+  "g1_kill_ratio_threshold_pinned": true,
+  "kill_ratio_min": 0.75,
+  "ship": false,
+  "routing": "blocked",
+  "reason": "G-4 both-modes destination parity unavailable: modernized has Owner/Pet models/repos only — no REST resources. Kill-ratio pin 0.75 satisfied (#8). Do not invent destination controllers for fake M5 ACCEPT. Visit deferred (plan #9).",
+  "blocked_on": ["destination_owner_pet_rest", "g4_dual_app_http_parity"],
+  "evidence_refs": [
+    "migration/contracts/g1-kill-ratio-pin.json",
+    "migration/verdicts/owner-pet-m4.json"
+  ]
+}
