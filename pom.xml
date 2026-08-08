@@ -73,6 +73,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-rest-jackson</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-elytron-security-properties-file</artifactId>
+    </dependency>
 
     <!-- JPA/Hibernate (restored after 07765f6 accidental drop; present at M4 acb98055) -->
     <dependency>
