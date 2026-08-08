@@ -1,0 +1,184 @@
+{
+  "schema": "slice-closure-map/v1",
+  "story_id_primary": "B-OWNER-PET-1",
+  "built_at": "2026-08-08T10:47:15Z",
+  "workspace": "petclinic-rest-v7-refac",
+  "modernized_tip": "acb98055e1c7982466db9b695f99d22a2a3ed112",
+  "harvest_referent": "/projects/.derived/legacy-at-3",
+  "harvest_referent_sha256": "08c8d6a54377cd02c3b6723da27dc2df2e8bff11b87f47ddb5093d39cb03d3fb",
+  "entry_points_owner_pet_count": 14,
+  "entry_points_owner_pet": [
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/OwnerRestController.java",
+      "line": 41,
+      "symbol": "<unknown>",
+      "evidence": "@RequestMapping(\"/api/owners\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/OwnerRestController.java",
+      "line": 53,
+      "symbol": "OwnerRestController#getOwnersList",
+      "evidence": "@RequestMapping(value = \"/*/lastname/{lastName}\", method = RequestMethod.GET, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/OwnerRestController.java",
+      "line": 66,
+      "symbol": "OwnerRestController#getOwners",
+      "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/OwnerRestController.java",
+      "line": 76,
+      "symbol": "OwnerRestController#getOwner",
+      "evidence": "@RequestMapping(value = \"/{ownerId}\", method = RequestMethod.GET, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/OwnerRestController.java",
+      "line": 87,
+      "symbol": "OwnerRestController#addOwner",
+      "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/OwnerRestController.java",
+      "line": 105,
+      "symbol": "OwnerRestController#updateOwner",
+      "evidence": "@RequestMapping(value = \"/{ownerId}\", method = RequestMethod.PUT, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/OwnerRestController.java",
+      "line": 130,
+      "symbol": "OwnerRestController#deleteOwner",
+      "evidence": "@RequestMapping(value = \"/{ownerId}\", method = RequestMethod.DELETE, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/PetRestController.java",
+      "line": 42,
+      "symbol": "<unknown>",
+      "evidence": "@RequestMapping(\"api/pets\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/PetRestController.java",
+      "line": 55,
+      "symbol": "PetRestController#getPet",
+      "evidence": "@RequestMapping(value = \"/{petId}\", method = RequestMethod.GET, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/PetRestController.java",
+      "line": 65,
+      "symbol": "PetRestController#getPets",
+      "evidence": "@RequestMapping(value = \"\", method = RequestMethod.GET, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/PetRestController.java",
+      "line": 75,
+      "symbol": "PetRestController#getPetTypes",
+      "evidence": "@RequestMapping(value = \"/pettypes\", method = RequestMethod.GET, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/PetRestController.java",
+      "line": 81,
+      "symbol": "PetRestController#addPet",
+      "evidence": "@RequestMapping(value = \"\", method = RequestMethod.POST, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/PetRestController.java",
+      "line": 98,
+      "symbol": "PetRestController#updatePet",
+      "evidence": "@RequestMapping(value = \"/{petId}\", method = RequestMethod.PUT, produces = \"application/json\")"
+    },
+    {
+      "kind": "http",
+      "subtype": "spring-mvc-or-jaxrs",
+      "file": "src/main/java/org/springframework/samples/petclinic/rest/PetRestController.java",
+      "line": 119,
+      "symbol": "PetRestController#deletePet",
+      "evidence": "@RequestMapping(value = \"/{petId}\", method = RequestMethod.DELETE, produces = \"application/json\")"
+    }
+  ],
+  "stories": {
+    "B-OWNER-PET-1": {
+      "closure": [
+        "src/main/java/org/springframework/samples/petclinic/rest/OwnerRestController.java",
+        "src/main/java/org/springframework/samples/petclinic/rest/PetRestController.java",
+        "org.springframework.samples.petclinic.model.Owner",
+        "org.springframework.samples.petclinic.model.Pet",
+        "org.springframework.samples.petclinic.model.PetType",
+        "org.springframework.samples.petclinic.model.Person",
+        "org.springframework.samples.petclinic.model.NamedEntity",
+        "org.springframework.samples.petclinic.model.BaseEntity",
+        "src/main/java/org/springframework/samples/petclinic/model/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/model/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/model/PetType.java",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+        "org.springframework.samples.petclinic.repository.OwnerRepository",
+        "org.springframework.samples.petclinic.repository.PetRepository",
+        "src/main/java/org/springframework/samples/petclinic/repository/OwnerRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/repository/PetRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/repository/jpa/JpaOwnerRepositoryImpl.java",
+        "src/main/java/org/springframework/samples/petclinic/repository/jpa/JpaPetRepositoryImpl.java",
+        "src/main/java/org/springframework/samples/petclinic/repository/springdatajpa/SpringDataPetRepositoryImpl.java",
+        "com.demo.model.Owner",
+        "com.demo.model.Pet",
+        "com.demo.model.PetType",
+        "com.demo.model.Person",
+        "com.demo.model.NamedEntity",
+        "com.demo.model.BaseEntity",
+        "src/main/java/com/demo/model/Owner.java",
+        "src/main/java/com/demo/model/Pet.java",
+        "src/main/java/com/demo/model/PetType.java",
+        "src/main/java/com/demo/model/Person.java",
+        "src/main/java/com/demo/model/NamedEntity.java",
+        "src/main/java/com/demo/model/BaseEntity.java",
+        "src/main/java/com/demo/repository/OwnerRepository.java",
+        "src/main/java/com/demo/repository/PetRepository.java",
+        "src/main/java/com/demo/repository/jpa/JpaOwnerRepositoryImpl.java",
+        "src/main/java/com/demo/repository/jpa/JpaPetRepositoryImpl.java",
+        "src/main/java/com/demo/repository/springdatajpa/SpringDataPetRepositoryImpl.java",
+        "/api/owners",
+        "/api/pets"
+      ],
+      "shared_substrate_residue_nongoals": [
+        "org.springframework.samples.petclinic.model.Visit",
+        "org.springframework.samples.petclinic.model.Vet",
+        "org.springframework.samples.petclinic.model.Specialty",
+        "com.demo.model.Visit",
+        "com.demo.model.Vet",
+        "com.demo.model.Specialty",
+        "note: FK/graph residue present; APIs not expanded in B-OWNER-PET-1 Non-Goals"
+      ],
+      "note": "Owner\u2194Pet transitive closure for \u00a718.0\u00b64 / \u00a711.3; Visit deferred slice-two"
+    }
+  },
+  "accept_state": {
+    "B-OWNER-PET-1": "PROVISIONAL_ACCEPT"
+  },
+  "w2_s10": "fixture content remains synthetic under migration/fixtures; this map is slice evidence not golden specimen classes"
+}

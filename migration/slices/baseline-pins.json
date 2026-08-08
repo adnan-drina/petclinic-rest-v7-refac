@@ -1,0 +1,29 @@
+{
+  "schema": "slice-baseline-pins/v1",
+  "built_at": "2026-08-08T10:47:15Z",
+  "mta_cli_version": "v0.10.0-beta.1",
+  "mta_cli_sha_kantra": "d7b5ebd0b84ddddf037eddcb3dcaa487948f48c9",
+  "mta_cli_sha256_file": "41e87f52c8db06374331f9d9e186a9bed10656b7b360f33ed5299cc4713401a0",
+  "rulesets_sha": "a3941f091deaab9ca9a7c4907325a5cf9748f9cd",
+  "mta_version_raw": "version: v0.10.0-beta.1\nSHA: d7b5ebd0b84ddddf037eddcb3dcaa487948f48c9\nimage: quay.io/konveyor/kantra\nrulesets SHA: a3941f091deaab9ca9a7c4907325a5cf9748f9cd",
+  "targets": [
+    "quarkus",
+    "jakarta-ee9",
+    "cloud-readiness",
+    "openjdk17",
+    "openjdk21"
+  ],
+  "analyze_flags_note": "AD-003A --target only; --context-lines default 100 (codeSnip depth)",
+  "findings_input_for_1a": "/projects/legacy (Boot 2.6.2) \u2014 NOT harvest_referent",
+  "harvest_referent": "/projects/.derived/legacy-at-3",
+  "harvest_referent_sha256": "08c8d6a54377cd02c3b6723da27dc2df2e8bff11b87f47ddb5093d39cb03d3fb",
+  "derive_apply_log": "migration/derived/free-primitives-apply-log.json",
+  "legacy_at_3_manifest": "migration/derived/legacy-at-3.json",
+  "findings_json": "migration/mta-findings.json",
+  "mta_1a_metrics": {
+    "rules": 29,
+    "incidents": 258,
+    "real_codeSnip": 255,
+    "owner_pet_uri_hits": 72
+  }
+}
