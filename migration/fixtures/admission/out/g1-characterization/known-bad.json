@@ -4,6 +4,6 @@
   "verdict": "REFUSE",
   "reason": "mutation-evidence.json",
   "evidence": {
-    "path": "migration/fixtures/admission/g1-characterization/known-bad"
+    "path": "/projects/modernized/migration/fixtures/admission/g1-characterization/known-bad"
   }
 }

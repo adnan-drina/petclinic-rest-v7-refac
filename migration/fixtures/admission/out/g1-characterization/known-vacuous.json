@@ -4,6 +4,6 @@
   "verdict": "INCONCLUSIVE",
   "reason": "mutation-evidence.json",
   "evidence": {
-    "path": "migration/fixtures/admission/g1-characterization/known-vacuous"
+    "path": "/projects/modernized/migration/fixtures/admission/g1-characterization/known-vacuous"
   }
 }

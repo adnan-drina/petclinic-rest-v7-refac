@@ -4,6 +4,6 @@
   "verdict": "REFUSE",
   "reason": "field-set comparison",
   "evidence": {
-    "path": "migration/fixtures/admission/g2-harvest-fidelity/known-bad"
+    "path": "/projects/modernized/migration/fixtures/admission/g2-harvest-fidelity/known-bad"
   }
 }

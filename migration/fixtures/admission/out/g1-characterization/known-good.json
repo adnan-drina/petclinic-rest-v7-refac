@@ -4,6 +4,6 @@
   "verdict": "ACCEPT",
   "reason": "mutation-evidence.json",
   "evidence": {
-    "path": "migration/fixtures/admission/g1-characterization/known-good"
+    "path": "/projects/modernized/migration/fixtures/admission/g1-characterization/known-good"
   }
 }

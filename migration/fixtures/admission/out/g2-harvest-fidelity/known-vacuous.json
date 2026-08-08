@@ -4,6 +4,6 @@
   "verdict": "INCONCLUSIVE",
   "reason": "field-set comparison",
   "evidence": {
-    "path": "migration/fixtures/admission/g2-harvest-fidelity/known-vacuous"
+    "path": "/projects/modernized/migration/fixtures/admission/g2-harvest-fidelity/known-vacuous"
   }
 }

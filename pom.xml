@@ -62,39 +62,10 @@
   </dependencyManagement>
 
   <dependencies>
-    <!-- Quarkus Core -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-core</artifactId>
-    </dependency>
-    
-    <!-- REST endpoints -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-rest-jackson</artifactId>
     </dependency>
-    
-    <!-- JPA/Hibernate -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-orm-panache</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jdbc-postgresql</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-agroal</artifactId>
-    </dependency>
-    
-    <!-- Validation -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-validator</artifactId>
-    </dependency>
-    
-    <!-- Health and Metrics -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
@@ -103,8 +74,6 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
     </dependency>
-    
-    <!-- Testing -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -171,6 +140,21 @@
            shared jacoco-quarkus.exec, target/jacoco-report/jacoco.xml often
            never lands and Sonar new_coverage reads 0% on exercised classes.
            Align with https://quarkus.io/guides/tests-with-coverage -->
+      <!-- G-1 volume floor (W2 §6 / Research): pitest-maven 1.25.5 + junit5
+           plugin ≥1.2.3. Not bound to a phase — invoked by
+           domain-gates/scripts/count-pit-dry-run.sh (-Dpit.dryRun=true). -->
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.25.5</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>1.2.3</version>
+          </dependency>
+        </dependencies>
+      </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>

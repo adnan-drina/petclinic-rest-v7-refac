@@ -4,6 +4,6 @@
   "verdict": "REFUSE",
   "reason": "parity.json",
   "evidence": {
-    "path": "migration/fixtures/admission/g4-runtime-parity/known-bad"
+    "path": "/projects/modernized/migration/fixtures/admission/g4-runtime-parity/known-bad"
   }
 }

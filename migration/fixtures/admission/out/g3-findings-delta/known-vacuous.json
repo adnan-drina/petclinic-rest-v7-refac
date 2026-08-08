@@ -4,6 +4,6 @@
   "verdict": "INCONCLUSIVE",
   "reason": "mta-findings.json",
   "evidence": {
-    "path": "migration/fixtures/admission/g3-findings-delta/known-vacuous"
+    "path": "/projects/modernized/migration/fixtures/admission/g3-findings-delta/known-vacuous"
   }
 }

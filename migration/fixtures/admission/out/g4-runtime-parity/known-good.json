@@ -4,6 +4,6 @@
   "verdict": "ACCEPT",
   "reason": "parity.json",
   "evidence": {
-    "path": "migration/fixtures/admission/g4-runtime-parity/known-good"
+    "path": "/projects/modernized/migration/fixtures/admission/g4-runtime-parity/known-good"
   }
 }

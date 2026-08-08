@@ -4,6 +4,6 @@
   "verdict": "INCONCLUSIVE",
   "reason": "parity.json",
   "evidence": {
-    "path": "migration/fixtures/admission/g4-runtime-parity/known-vacuous"
+    "path": "/projects/modernized/migration/fixtures/admission/g4-runtime-parity/known-vacuous"
   }
 }
