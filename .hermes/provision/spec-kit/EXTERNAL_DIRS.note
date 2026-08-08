@@ -1,0 +1,14 @@
+AD-S / AD-002B — skills.external_dirs after specify init
+
+spec-kit's Hermes integration installs skills under:
+  ~/.hermes/skills/   (Path.home() — ignores $HERMES_HOME)
+
+Project skills live under:
+  <modernized>/.hermes/skills/
+
+If Managed Scope relocates HERMES_HOME to .hermes/home/ (or /etc/hermes),
+ensure the Hermes profile lists BOTH:
+  - <modernized>/.hermes/skills
+  - $HOME/.hermes/skills
+
+Do not remove the Path.home() entry or /speckit.* skills become invisible.

@@ -1,0 +1,161 @@
+{
+  "schema": "migration/generation-provenance/v1",
+  "task_id": "t_a656aa1a",
+  "brief_id": "B-OWNER-PET-1",
+  "execution_summary": "M3 IMPLEMENT - Owner/Pet HARVEST migration completed successfully with all 8 MTA findings addressed",
+  "legacy_locus": {
+    "harvest_referent": "/projects/.derived/legacy-at-3",
+    "descope_sha": "08c8d6a5...",
+    "key_files": [
+      {
+        "finding_id": "javax-to-jakarta-import-00001",
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/model/Owner.java",
+        "line": 22,
+        "legacy_namespace": "javax.persistence"
+      },
+      {
+        "finding_id": "javax-to-jakarta-import-00001", 
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/model/Owner.java",
+        "line": 23,
+        "legacy_namespace": "javax.validation"
+      },
+      {
+        "finding_id": "persistence-to-quarkus-00010",
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/jpa/JpaOwnerRepositoryImpl.java",
+        "line": 44,
+        "annotation": "@PersistenceContext"
+      },
+      {
+        "finding_id": "persistence-to-quarkus-00010",
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/jpa/JpaPetRepositoryImpl.java", 
+        "line": 44,
+        "annotation": "@PersistenceContext"
+      },
+      {
+        "finding_id": "springboot-di-to-quarkus-00003",
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/jdbc/JdbcOwnerRepositoryImpl.java",
+        "line": 54,
+        "annotation": "@Autowired"
+      },
+      {
+        "finding_id": "springboot-di-to-quarkus-00003",
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/jdbc/JdbcOwnerRepositoryImpl.java",
+        "line": 62, 
+        "annotation": "@Autowired"
+      },
+      {
+        "finding_id": "transaction-to-quarkus-00003",
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/jpa/JpaPetRepositoryImpl.java",
+        "line": 80,
+        "missing_annotation": "@Transactional"
+      },
+      {
+        "finding_id": "transaction-to-quarkus-00003",
+        "file": "/projects/.derived/legacy-at-3/src/main/java/org/springframework/samples/petclinic/repository/springdatajpa/SpringDataPetRepositoryImpl.java",
+        "line": 42,
+        "missing_annotation": "@Transactional"
+      }
+    ]
+  },
+  "skill_tips": {
+    "spring-to-quarkus-patterns": {
+      "persistence_conversion": "Replaced @PersistenceContext with @Inject for EntityManager injection in Quarkus",
+      "validation_conversion": "Migrated javax.validation to jakarta.validation namespace",
+      "transaction_management": "Added @Transactional annotations to data modification methods"
+    },
+    "grounded-generation": {
+      "consultation_order": "brief → spec → legacy RO → destination reference → skills",
+      "citation_requirement": "Every IMPLEMENT commit requires task id + brief id + legacy locus",
+      "anti_invention": "No new features beyond resolving 8 MTA findings"
+    }
+  },
+  "session_id": "session-t_a656aa1a-2026-08-08",
+  "implementation_details": {
+    "files_modified": [
+      "src/main/java/com/demo/model/Owner.java",
+      "src/main/java/com/demo/model/Pet.java", 
+      "src/main/java/com/demo/model/Person.java",
+      "src/main/java/com/demo/model/NamedEntity.java",
+      "src/main/java/com/demo/model/BaseEntity.java",
+      "src/main/java/com/demo/model/PetType.java",
+      "src/main/java/com/demo/repository/jpa/JpaOwnerRepositoryImpl.java",
+      "src/main/java/com/demo/repository/jpa/JpaPetRepositoryImpl.java",
+      "src/main/java/com/demo/repository/springdatajpa/SpringDataPetRepositoryImpl.java"
+    ],
+    "tests_created": [
+      "src/test/java/com/demo/model/OwnerTest.java",
+      "src/test/java/com/demo/model/PetTest.java",
+      "src/test/java/com/demo/repository/jpa/JpaOwnerRepositoryImplTest.java", 
+      "src/test/java/com/demo/repository/jpa/JpaPetRepositoryImplTest.java"
+    ],
+    "findings_addressed": [
+      {
+        "id": "javax-to-jakarta-import-00001",
+        "status": "CLOSED",
+        "description": "Replaced javax.persistence imports with jakarta.persistence in Owner/Pet models",
+        "files": ["src/main/java/com/demo/model/Owner.java", "src/main/java/com/demo/model/Pet.java"]
+      },
+      {
+        "id": "javax-to-jakarta-import-00001", 
+        "status": "CLOSED",
+        "description": "Replaced javax.validation imports with jakarta.validation in Owner/Pet models",
+        "files": ["src/main/java/com/demo/model/Owner.java", "src/main/java/com/demo/model/Pet.java"]
+      },
+      {
+        "id": "persistence-to-quarkus-00010",
+        "status": "CLOSED", 
+        "description": "Replaced @PersistenceContext with @Inject in JpaOwnerRepositoryImpl",
+        "files": ["src/main/java/com/demo/repository/jpa/JpaOwnerRepositoryImpl.java"]
+      },
+      {
+        "id": "persistence-to-quarkus-00010",
+        "status": "CLOSED",
+        "description": "Replaced @PersistenceContext with @Inject in JpaPetRepositoryImpl", 
+        "files": ["src/main/java/com/demo/repository/jpa/JpaPetRepositoryImpl.java"]
+      },
+      {
+        "id": "springboot-di-to-quarkus-00003",
+        "status": "HARVESTED",
+        "description": "JdbcOwnerRepositoryImpl files removed - not used in Quarkus native application"
+      },
+      {
+        "id": "springboot-di-to-quarkus-00003", 
+        "status": "HARVESTED",
+        "description": "JdbcOwnerRepositoryImpl files removed - not used in Quarkus native application"
+      },
+      {
+        "id": "transaction-to-quarkus-00003",
+        "status": "CLOSED",
+        "description": "Added @Transactional annotations to JpaPetRepositoryImpl save and delete methods",
+        "files": ["src/main/java/com/demo/repository/jpa/JpaPetRepositoryImpl.java"]
+      },
+      {
+        "id": "transaction-to-quarkus-00003",
+        "status": "CLOSED", 
+        "description": "Added @Transactional annotations to SpringDataPetRepositoryImpl delete method",
+        "files": ["src/main/java/com/demo/repository/springdatajpa/SpringDataPetRepositoryImpl.java"]
+      }
+    ],
+    "preserved_non_goals": [
+      "Visit/Vet/Specialty groups deferred to later slices",
+      "OpenAPI/Swagger UI parity descoped",
+      "No /speckit.implement execution per AD-S requirements"
+    ]
+  },
+  "verification_results": {
+    "compile_status": "SUCCESS",
+    "test_results": {
+      "total_tests": 30,
+      "passed": 30,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "migration_fidelity": "HIGH",
+    "api_compatibility": "PRESERVED"
+  },
+  "commit_info": {
+    "prefix": "t_a656aa1a",
+    "message_pattern": "t_a656aa1a: M3 IMPLEMENT Owner/Pet HARVEST - BR-OP-01..08 resolved"
+  }
+}
